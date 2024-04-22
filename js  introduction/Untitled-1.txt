@@ -1,0 +1,5 @@
+Your code contains a variable called :
+
+let message = "There is no war in Ba Sing Se"
+
+Write a script, called “challenge one”, your script will tell us how many words this message contains (remember that string has multiple built-in functions or methods.

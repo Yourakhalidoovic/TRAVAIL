@@ -1,0 +1,26 @@
+Greedy Algorithm:
+The greedy algorithm aims to minimize the number of coins and bills used by always selecting the largest denomination that fits without exceeding the remaining change.
+Here’s how it works:
+Sort the available denominations in descending order.
+Initialize an empty dictionary (or hash map) to keep track of the count of each denomination used.
+Iterate through the denominations:
+While the denomination value is less than or equal to the remaining change, subtract that value from the change and increment the count for that denomination.
+If the remaining change is zero, return the dictionary with the counts. Otherwise, indicate that exact change is not possible.
+Example: If the total change is $47 and the available denominations are [20, 10, 5, 1], the algorithm would output {20: 2, 5: 1, 1: 2}.
+Dynamic Programming (Coin Change Problem):
+This approach finds the minimum number of coins needed to make a given value.
+It uses a dynamic programming table to store the minimum number of coins for each value from 0 to the target amount.
+The recurrence relation is:
+dp[i] = min(dp[i], dp[i - coin] + 1)
+where coin is the denomination value.
+The final answer is stored in dp[total_change].
+If dp[total_change] is infinity, it means exact change is not possible.
+This approach can handle any set of denominations.
+Example: For denominations [1, 2, 3] and total change 4, the algorithm would output 4 (using coins {1, 1, 1, 1}, {1, 1, 2}, {2, 2}, {1, 3}).
+Memoization (Dynamic Programming):
+Similar to the dynamic programming approach, but with memoization to avoid redundant calculations.
+Store the results of previously solved subproblems in a 2D array.
+Base cases: dp[0][j] = 1 (only one way to make change with no coins) and dp[i][0] = 0 (no ways to make change with no denominations).
+Fill in the rest of the table using the recurrence relation.
+Example: For denominations [2, 5, 3, 6] and total change 10, the algorithm would output 5 (using coins {2, 2, 2, 2, 2}, {2, 2, 3, 3}, {2, 2, 6}, {2, 3, 5}, {5, 5}).
+Remember that the greedy algorithm may not always give the optimal solution, especially if the denominations are not well-suited for each other. Dynamic programming approaches are more reliable but require more memory and computation.
